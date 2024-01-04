@@ -313,7 +313,7 @@ p {
         height: 0.5rem;
     }
 }
-
+/*=======*** ABOUT ***========*/
 #about {
     padding: 5rem 0;
 }
@@ -369,4 +369,56 @@ h2 span {
     .about--wrapper {
         flex-direction: column;
     }
+}
+/*=======*** DEPARTMENTS ***========*/
+.departments {
+    background-color: rgb(255, 255, 255);
+    padding: 5rem 0;
+}
+.section--header {
+    text-align: center;
+    width: 60%;
+    margin: auto;
+}
+.underline {
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: rgb(24, 139, 77);
+    margin: auto;
+    margin-bottom: 1.7rem;
+}
+.departments--tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+.depart-tab {
+    background-color: rgb(241, 241, 241);
+    aspect-ratio: 1/1;
+    text-align: center;
+    flex-direction: column;
+    transition: all 300ms ease;
+}
+.depart--tab-icon {
+    color: rgb(65, 80, 134);
+    font-size: 2.5rem;
+    width: 2em;
+    height: 2em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    transition: all 400ms ease;
+}
+.depart-text span {
+    color: rgb(24, 139, 77);
+    font-size: 1.2rem;
+    font-weight: 900;
+    font-family: 'Ubuntu', sans-serif;
+}
+.depart-tab:hover {
+    background-color: rgb(65, 80, 134);
+}
+.depart-tab:hover .depart--tab-icon{
+    color: rgb(24, 139, 77);
 }
