@@ -15,6 +15,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
+/* html {
+    scroll-behavior: smooth;
+} */
 a {
     text-decoration: none;
 }
@@ -109,9 +112,17 @@ p {
     }
 }
 /**** MAIN-NAVBAR ****/
-#nav{
+.nav{
     position: relative;
     padding: 1.25rem 0;
+}
+.fixed--nav {
+    position: fixed;
+    width: 100%;
+    background-color: rgb(24, 139, 77);
+    top: 0;
+    z-index: 999;
+    transition: all 300ms ease;
 }
 .logo {
     display: block;
@@ -611,7 +622,7 @@ td {
 .card--content {
     padding: 1.25rem;
 }
-
+/*=======*** CONTACTS ***========*/
 .contact--wrapper {
     display: flex;
     align-items: center;
@@ -635,7 +646,7 @@ td {
 input , textarea{
     color: rgb(43, 43, 43);
     font-size: 1rem;
-    padding: 1rem;
+    padding: 0.75rem;
     width: 100%;
     height: 100%;
     border: none;
@@ -662,5 +673,79 @@ button {
     }
     .contact--showcase {
         order: 2;
+    }
+}
+/*=======*** FOOTERS ***========*/
+#footer {
+    padding: 2rem 0;
+}
+.footer--wrapper {
+    display: flex;
+    gap: 2rem;
+}
+.footer--col {
+    flex: 4;
+}
+.footer--col-header {
+    margin-bottom: 2rem;
+}
+.blog {
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.blog--img img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+h5 {
+    color: rgb(43, 43, 43);
+    font-size: 1rem;
+    font-weight: 900;
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 0.2em;
+}
+.blog--content span {
+    color: rgb(43, 43, 43);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.contact--detail {
+    margin-bottom: 1rem;
+    padding-left: 1.75rem;
+    position: relative;
+}
+.contact--detail::before {
+    content: '\2713';
+    display: block;
+    position: absolute;
+    color: rgb(24, 139, 77);
+    font-size: 1.2rem;
+    left: 0;
+    top: -2px;
+}
+.site--footer {
+    background-color: rgb(65, 80, 134);
+    padding: 1rem 0;
+}
+.site--footer a {
+    color: rgb(255, 255, 255);
+    font-size: 0.85rem;
+}
+
+@media screen and (max-width:992px) {
+    .footer--wrapper {
+        flex-direction: column;
+    }
+}
+@media screen and (max-width:768px) {
+    .site--footer--container {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
     }
 }
