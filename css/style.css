@@ -202,6 +202,7 @@ p {
 .slider {
     position: relative;
     height: 100vh;
+    overflow: hidden;
 }
 .slide {
     background: rgb(238,226,174);
@@ -209,6 +210,8 @@ p {
     height: 100vh;
     width: 100%;
     text-align: center;
+    transition: all 300ms ease;
+
 }
 .slide--1 {
     background: url(../images/slide--1.jpg);
@@ -299,7 +302,7 @@ p {
     border-radius: 50%;
     opacity: 0.1;
 }
-.dot.active {
+.active {
     opacity: 0.8;
 }
 @media screen and (max-width:768px) {
@@ -486,6 +489,10 @@ h3 {
     top: 50%;
     border-radius: 50%;
     transition: all 300ms ease;
+}
+.depart--btn-active {
+    color: rgb(255, 255, 255);
+    background-color: rgb(65, 80, 134);
 }
 .depart--btn:hover {
     color: rgb(255, 255, 255);

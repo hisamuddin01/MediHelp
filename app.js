@@ -33,6 +33,67 @@ document.querySelector('.nav--links').addEventListener('click', function(e) {
     }
 });
 // ///////////////////////////////////////////////////
+//slider
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+const btnNext= document.querySelector('.slide--btn-right');
+const btnPrev = document.querySelector('.slide--btn-left');
+const dotContainer = document.querySelector('.dots');
+
+let curSlide = 0;
+const maxSlide = slides.length;
+
+
+const activateDot = function(slide) {
+    document
+        .querySelectorAll('.dot')
+        .forEach(dot => dot.classList.remove('active'));
+
+    document
+        .querySelector(`.dot[data-slide="${slide}"]`)
+        .classList.add('active')
+}
+activateDot(0)
+
+const goToSlide = function(slide) {
+    slides.forEach((s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)) ;
+}
+goToSlide(0);
+// Next Slide 
+const nextSlide = function() {
+    if(curSlide === maxSlide - 1) {
+        curSlide = 0
+    }
+    else{
+        curSlide++;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide)
+}
+// Prev Slide 
+const prevSlide = function() {
+    if(curSlide === 0) {
+        curSlide = maxSlide -1
+    }
+    else{
+        curSlide--;
+    }
+    goToSlide(curSlide)
+    activateDot(curSlide)
+}
+
+btnNext.addEventListener('click', nextSlide);
+btnPrev.addEventListener('click', prevSlide);
+
+dotContainer.addEventListener('click', function(e) {
+    if(e.target.classList.contains('dot')) {
+        const {slide} = e.target.dataset;
+        goToSlide(slide);
+        activateDot(slide);
+    }
+})
+
+// ///////////////////////////////////////////////////
 const btnsScrollTo = document.querySelectorAll('.btn--scroll-to');
 const section1 = document.querySelector("#about");
 // BTN scrolling
@@ -50,3 +111,25 @@ btnsScrollTo.forEach((btn) => {
         });
     });
 });
+
+// TABBED COMPONENT
+const tabs = document.querySelectorAll('.depart-tab');
+const tabsContainer = document.querySelector('.departments--tabs');
+const tabsContent = document.querySelectorAll('.depart--content');
+
+tabsContainer.addEventListener('click', function(e) {
+    const clicked = e.target.closest('.depart-tab');
+    console.log(clicked)
+
+  if(!clicked) return;
+
+    tabs.forEach(t => t.classList.remove('depart--btn-active'));
+    tabsContent.forEach(c => c.classList.remove('depart--content-active'))
+    clicked.classList.add('depart--btn-active')
+
+    // Activate content
+    console.log(clicked.dataset.tab)
+    document
+        .querySelector(`.depart--content-${clicked.dataset.tab}`)
+        .classList.add('depart--content-active')
+})
